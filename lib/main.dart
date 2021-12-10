@@ -40,12 +40,13 @@ class _SignInPageState extends State<SignInPage> {
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 TextField(
-                  obscureText: true,
                   decoration: const InputDecoration(
                     labelText: 'Enter Email', suffixIcon: Icon(Icons.done)
-                  ),controller:email,
+                  ),
+                  controller:email,
                   onChanged: (a){setState(() {
-                  });}, ),
+
+                  });},),
                 const SizedBox(height: 30),
                 const Text(
                   'Password',
@@ -55,9 +56,10 @@ class _SignInPageState extends State<SignInPage> {
                   obscureText: true,
                   decoration: const InputDecoration(
                     labelText: 'Enter Password', suffixIcon: Icon(Icons.visibility),
-                  ),
+                  hoverColor: Colors.deepPurple),
                   controller: password,
                   onChanged: (a){setState(() {
+
                   });},
                 ),
                 const SizedBox(height: 20),
@@ -67,10 +69,10 @@ class _SignInPageState extends State<SignInPage> {
                     child: const Text('Sign in'),
                     style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 150),
-                        primary:email.text.isEmpty || password.text.isEmpty? Colors.grey: Colors.blue,
+                        primary:email.text.isEmpty || password.text.isEmpty? Colors.grey: Colors.deepPurple,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)
-                        )),
+                        ),),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -79,11 +81,13 @@ class _SignInPageState extends State<SignInPage> {
                       'Forgot the password?', style: TextStyle(fontWeight: FontWeight.bold)
                   ),
                 ),
-                Expanded(child: SizedBox()),
-                const Center(
-                  child: Text(
-                        "Don't have an Account? Sign-up", style: TextStyle(fontWeight: FontWeight.bold)
-                    ),
+                Expanded(child: Container()),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                      Text("Don't have an Account? "),
+                      Text("Sign-up", style: TextStyle(fontWeight: FontWeight.bold),),
+                  ],
                 ),
               ],
             ),
